@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML dinámico</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <h1>HTML dinámico</h1>
+  <br>
+  <div>
+    <button onclick="clickButton()" class="clickContainer">Agregar elemento</button>
+  </div>
+  <div id="referenceElement">Elemento de referencia</div>
+
+  <div class="textContainer">
+    <button onclick="highlightText()">Resaltar</button>
+    <button onclick="reset()">Resetear</button>
+    <p id="text">
+      Lorem ipsum, dolor sit amet <b>consectetur</b> adipisicing elit. 
+      Dicta incidunt in <b>ducimusa</b> repellendus sit <b>ullam</b> quia quam officia, 
+      reiciendis iusto facere fugit <b>blanditiis</b> quaerat iure eos corporis 
+      voluptate ea tempore!
+    </p>
+  </div>
+</body>
+</html>
