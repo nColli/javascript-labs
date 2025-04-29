@@ -28,3 +28,13 @@ function reset() {
     words[i].style.backgroundColor = "white";
   }
 }
+
+function deleteElem() {
+  //estructura $(selector).action()
+  //eliminar elementos con clase javascriptElement
+  $(".javascriptElement").remove();
+}
+
+function delText() {
+  $("#text > b").css({backgroundColor: "black"})
+}

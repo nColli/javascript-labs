@@ -12,11 +12,13 @@
   <br>
   <div>
     <button onclick="clickButton()" class="clickContainer">Agregar elemento</button>
+    <button onclick="deleteElem()" class="clickContainer">Eliminar elementos</button>
   </div>
   <div id="referenceElement">Elemento de referencia</div>
 
   <div class="textContainer">
     <button onclick="highlightText()">Resaltar</button>
+    <button onclick="delText()">Tachar</button>
     <button onclick="reset()">Resetear</button>
     <p id="text">
       Lorem ipsum, dolor sit amet <b>consectetur</b> adipisicing elit. 
@@ -25,5 +27,6 @@
       voluptate ea tempore!
     </p>
   </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
