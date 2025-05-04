@@ -10,3 +10,9 @@ let fechaAct = new Date('2025-05-04');
 let tiempoAhora = new Date();
 console.log('fecha act', fechaAct);
 console.log('tiempo:', tiempoAhora);
+const nuevoUsuario = {
+    id: 1,
+    nombre: 'Juan',
+    correo: 'test@test.com'
+};
+console.log('nuevo usuario', nuevoUsuario);
