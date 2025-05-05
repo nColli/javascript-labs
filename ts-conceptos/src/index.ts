@@ -162,3 +162,33 @@ interface Config {
 }
 const config = { size: 10 }
 
+
+//EJERCICIO BANCO
+class CuentaBancaria {
+  protected saldo: number;
+  public titular: string;
+
+  constructor(titular: string, saldo: number) {
+    this.saldo = saldo;
+    this.titular = titular;
+  }
+
+  private registrarTransaccion(saldo: number): void {
+    this.saldo += saldo;
+  }
+
+  public consultarSaldo(): void {
+    console.log(`saldo actual: ${this.saldo}`);
+  }
+}
+
+class CuentaPremium extends CuentaBancaria {
+  public bonificarSaldo(): void {
+    this.saldo *= 1.05;
+  }
+}
+
+const prem = new CuentaPremium("Juan", 20000);
+prem.consultarSaldo();
+prem.bonificarSaldo();
+prem.consultarSaldo();
