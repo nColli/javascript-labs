@@ -106,12 +106,6 @@ class CookieHandler extends BaseCommandHandler {
 	}
 }
 
-const cookieHandler = new CookieHandler("input-01", "textarea-01", "p-mensaje-01", "dummy-space-01");
-document.body.addEventListener("click", (event) => {btnHandler(event, cookieHandler, 1);});
-(function (param) {
-	cookieHandler.init(param);
-})("demo=activo; max-age=3600; path=/");
-
 class SessionHandler extends BaseCommandHandler {
 	update() {
 		try {
@@ -144,13 +138,6 @@ class SessionHandler extends BaseCommandHandler {
 		}
 	}
 }
-
-const sessionHandler = new SessionHandler("input-02", "textarea-02", "p-mensaje-02", "dummy-space-02");
-document.body.addEventListener("click", (event) => {btnHandler(event, sessionHandler, 2);});
-(function (param) {
-	sessionHandler.init(param);
-})("\"key\", \"value\"");
-
 
 class StorageHandler extends BaseCommandHandler {
 	update() {
@@ -186,6 +173,18 @@ class StorageHandler extends BaseCommandHandler {
 		}
 	}
 }
+
+const cookieHandler = new CookieHandler("input-01", "textarea-01", "p-mensaje-01", "dummy-space-01");
+document.body.addEventListener("click", (event) => {btnHandler(event, cookieHandler, 1);});
+(function (param) {
+	cookieHandler.init(param);
+})("demo=activo; max-age=3600; path=/");
+
+const sessionHandler = new SessionHandler("input-02", "textarea-02", "p-mensaje-02", "dummy-space-02");
+document.body.addEventListener("click", (event) => {btnHandler(event, sessionHandler, 2);});
+(function (param) {
+	sessionHandler.init(param);
+})("\"key\", \"value\"");
 
 const storageHandler = new StorageHandler("input-03", "textarea-03", "p-mensaje-03", "dummy-space-03");
 document.body.addEventListener("click", (event) => {btnHandler(event, storageHandler, 3);});
