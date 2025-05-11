@@ -12,7 +12,7 @@ Archivo que exporta partes de su codigo para que puedan ser usados en otros arch
 
 **IMPORT**: frontend
 
-#### ECMAScript (ES6) Module System
+#### ECMAScript (ES6) Module System - IMPORT - FRONTEND
 Admite importaciones estáticas y dinámicas, 
 las dinámicas son utilizadas para cargar modulos en tiempo de ejecución, mejorando uso de memoria
 y tiempos de arranque más cortos
@@ -42,7 +42,7 @@ async function loadModule() {
 loadModule();
 ```
 
-#### CommonJS Module System
+#### CommonJS Module System - REQUIRE - BACKEND
 Estandar para modularizar JS, diseñado para lado del SERVIDOR (Node.js)
 Modulos se cargan sincronicamente, uno tras otro, puede generar cuellos de botella con grandes cant
 
