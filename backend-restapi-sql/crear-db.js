@@ -6,3 +6,5 @@ db.serialize(() => {
 });
 
 db.close()
+
+//ejecutar con node crear-db.js por primera vez
