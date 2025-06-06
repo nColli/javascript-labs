@@ -8,7 +8,7 @@ async function login(req, res) {
 
   const user = await User.findOne({ username });
 
-  const passwordCorrect = user
+  const passwordCorrect = user === null
     ? false
     : await bcrypt.compare(password, user.passwordHash);
 

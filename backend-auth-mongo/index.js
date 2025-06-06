@@ -27,13 +27,11 @@ app.use(express.json());
 
 app.use('/api/auth', authRouter);
 
-app.use(tokenValidation);
-
-app.get('/', (req, res) => {
+app.get('/', tokenValidation, (req, res) => {
   res.send(`Date: ${new Date()}`);
 });
 
-app.post('/', (req, res) => {
+app.post('/', tokenValidation, (req, res) => {
   console.log('req.body', req.body)
   res.json({ message: 'OK' });
 });
