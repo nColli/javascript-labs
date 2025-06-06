@@ -4,8 +4,10 @@ require('dotenv').config();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const authRouter =  require('./authRouter');
-const tokenValidation = require('./auth').tokenValidation;
+const auth = require('./auth');
 const errorHandler = require('./errorHandler');
+const tokenValidation = auth.tokenValidation;
+const userExtractor = auth.userExtractor;
 
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -27,12 +29,15 @@ app.use(express.json());
 
 app.use('/api/auth', authRouter);
 
+app.use(userExtractor);
+
 app.get('/', tokenValidation, (req, res) => {
   res.send(`Date: ${new Date()}`);
 });
 
 app.post('/', tokenValidation, (req, res) => {
-  console.log('req.body', req.body)
+  console.log('req.body', req.body);
+  console.log('user:', req.user);
   res.json({ message: 'OK' });
 });
 

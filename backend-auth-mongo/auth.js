@@ -61,8 +61,7 @@ function getToken(req) {
   return null;
 }
 
-//middleware validar token y guardar usuario en req.user
-function tokenValidation(req, res, next) {
+function decodeToken(req) {
   const token = getToken(req);
 
   if (!token) {
@@ -71,6 +70,13 @@ function tokenValidation(req, res, next) {
 
   const decodedToken = jwt.verify(token, process.env.SECRET);
 
+  return decodedToken;
+}
+
+//middleware validar token y guardar usuario en req.user
+function tokenValidation(req, res, next) {
+  const decodedToken = decodeToken(req);
+
   if (!decodedToken.id) {
     return res.status(401).json({ error: 'token invalid' });
   }
@@ -78,8 +84,18 @@ function tokenValidation(req, res, next) {
   next();
 }
 
+async function userExtractor(req, res, next) {
+  const decodedToken = decodeToken(req);
+
+  const user = await User.findOne({ username: decodedToken.username });
+  req.user = user;
+
+  next();
+}
+
 module.exports = {
   login,
   signup,
-  tokenValidation
+  tokenValidation,
+  userExtractor
 }
