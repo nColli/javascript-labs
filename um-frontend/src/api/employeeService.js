@@ -1,7 +1,7 @@
 "use client";
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3000/api/employees';
+const API_BASE_URL = '/api/employees';
 
 export const getEmployees = () => axios.get(API_BASE_URL);
 
